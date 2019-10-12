@@ -12,8 +12,8 @@
 ?>
 <!DOCTYPE html>
 <html lang=en><head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -22,8 +22,8 @@
 <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link rel="stylesheet" type="text/css" href="./color_schemes">
- <script>
- 
+<script>
+var i=0;
   function displayDate1() {
     var h=name+", "+Date();
     var hello = document.getElementById("complaint").value;
@@ -45,6 +45,7 @@
     //sends query to gethint.php
     //update gethint.php build
     xmlhttp.send();
+    
     }
   }
   function displayDate2() {
@@ -71,49 +72,22 @@
     }
   }
   function displayDate3() {
-    // var h=name+", "+Date();
-    // document.getElementById("demo3").innerHTML = h;//redundancy used for understanding 
-    // //use this variable name to query the database.
-    // //see codes of (php-ajax) ajax php and database.
-    // if (name.length == 0) {
-    //   document.getElementById("demo3").innerHTML = "";
-    //   return;
-    //   } else {
-    //   var xmlhttp = new XMLHttpRequest();
-    //   xmlhttp.onreadystatechange = function() {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //     document.getElementById("demo3").innerHTML = this.responseText;
-    //     }
-    //   };
-    // xmlhttp.open("GET", "queryengine03.php?q=" + name, true);
-    // //sends query to gethint.php
-    // //update gethint.php build
-    // xmlhttp.send();
-    // }
     window.open("queryengine03.php?q=" + name);
   }
   function displayDate4() {
-    // var h=name+", "+Date();
-    // document.getElementById("demo4").innerHTML = h;//redundancy used for understanding 
-    // //use this variable name to query the database.
-    // //see codes of (php-ajax) ajax php and database.
-    // if (name.length == 0) {
-    // document.getElementById("demo4").innerHTML = "";
-    // return;
-    // } else {
-    // var xmlhttp = new XMLHttpRequest();
-    // xmlhttp.onreadystatechange = function() {
-    //   if (this.readyState == 4 && this.status == 200) {
-    //   document.getElementById("demo4").innerHTML = this.responseText;
-    //   }
-    // };
-    // xmlhttp.open("GET", "queryengine04.php?q=" + name, true);
-    // //sends query to gethint.php
-    // //update gethint.php build
-    // xmlhttp.send();
-    // }
-
     window.open("queryengine04.php?q=" + name);
+  }
+  function color_set() {
+    if(i==0){
+      document.getElementById("color_m").innerHTML = "Light Mode";
+      document.body.style.backgroundColor = "black";
+      i = 1;
+    }
+    else{
+      document.getElementById("color_m").innerHTML = "Dark Mode";
+      document.body.style.backgroundColor = "white";
+      i = 0;
+    }
   }
 </script>
 </head>
@@ -121,21 +95,26 @@
      <nav class="navbar navbar-fixed-top navbar-dark ">
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
-              <li style="background-color:red;"><a href="http://localhost/Build/App/teacher">Teacher</li>
+              <li style="background-color:red;"><a href="http://localhost/Build/App/teacher">Teacher</a></li>
+              <li style="float: right;background-color: aquamarine; border: none; padding: 2px;">
+                <button id="color_mode" onclick="color_set()" style="background-color: inherit; border: none;"> 
+                <img src="https://content.invisioncic.com/r229491/monthly_2018_10/icon.png.6ea8a7a7fbcf4c57df7b28ba4e996bb2.png"
+                height="20" width="20"> <p id="color_m" style="margin-bottom: 0;">Dark Mode</p></button>
+              </li>
             </ul>
       </nav>
     <div class="container">
-      <hr>
+      <hr style="background-color:red;">
       <br><br><br><br>
         <div class="row" style="display: flex;">
           <div class="col-md-5 title-logo"><img src="./stylesheets/student.png" class="img-responsive"></div>
           <div class="col-md-7 text-right">
-            <h3 class="title-super text-uppercase text-thin">Student Portal</h3>
+            <h3 class="title-super text-uppercase text-thin" style="color: #686868c9;">Teacher Portal</h3>
             <h4 class="text-uppercase">Information you need.</h4>
           </div>
         </div>
         <div>
-          <hr>
+          <hr style="background-color:gray;">
         </div>
         <div class="row text-center">
           <div class="col-md-12">
@@ -171,18 +150,18 @@
             <h3>Complaints</h3>
             <p>
               <form action="javascript:void(0);">
-                <select id="complaint">
-                  <option value="class">Class</option>
+                <select id="complaint" style="border: none; background: aqua; font-style: oblique; font-weight: bolder; border-radius: 5px;">
+                  <option value="classes">Class</option>
                   <option value="labs">Labs</option>
                   <option value="teachers">Teachers</option>
                   <option value="others">Others</option>
                 </select>
-                <select id="complaint_ver">
+                <select id="complaint_ver" style="border: none; background: aqua; font-style: oblique; font-weight: bolder; border-radius: 5px;">
                   <option value="0">UnSeen</option>
                   <option value="1">Read</option>
                   <option value="2">Resolved</option>
                 </select>
-                <button onclick="displayDate1()">Click me?</button>
+                <button onclick="displayDate1()" style="width: 100px; background-color: aqua; border: 1px dashed azure; font-weight: bold;">Click me?</button>
                 <p id="demo1"></p>
               </form>
             </p>
@@ -193,7 +172,7 @@
             <p>
             <form action="javascript:void(0);">
               <select id="suggest">
-                <option value="class">Class</option>
+                <option value="classes">Class</option>
                 <option value="labs">Labs</option>
                 <option value="teachers">Teachers</option>
                 <option value="others">Others</option>
@@ -211,11 +190,19 @@
         </div>
         <div class="row text-center">
           <div class="col-md-6">
+            <iframe src="new.php?q=complaints" style="border:none; width:600px; height:500px;"></iframe>
+          </div>
+          <div class="col-md-6">
+            <iframe src="new.php?q=suggestions" style="border:none; width:600px; height:500px;" ></iframe>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-6">
             <img src="./stylesheets/mentor.jpg" class="img-responsive">
             <h3>New Complaint</h3>
             <p>
               <button onclick="displayDate3()">Click me?</button>
-              <p id="demo3"></p>
+              <div id="demo3"></div>
             </p>
           </div>
           <div class="col-md-6">
@@ -228,13 +215,13 @@
           </div>
         </div>
         <br>
-        <hr>
+        <hr style="background-color:gray;">
         <div class="row text-center">
           <div class="col-md-12">
           <p>This is beta site under development. Policies and features are prone to abruptly change during this stage.
           User discretion is advised.The developers of this website do not hold any liablities. Images used in this website are not owned by us.
           </p>
-          <hr>
+          <hr style="background-color:gray;">
           <a style="text-align: center;">Copyright 2018</a>
           </div>
           <div class="col-md-12">

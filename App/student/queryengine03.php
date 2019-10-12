@@ -58,8 +58,8 @@ input[type=submit]:hover {
 
     <label for="tos">Type of Suggestions</label>
     <select id="tos" name="tos">
-      <option value="class">Class</option>
-      <option value="lab">Labs</option>
+      <option value="classes">Class</option>
+      <option value="labs">Labs</option>
       <option value="teachers">Teachers</option>
       <option value="others">Others</option>
     </select>
