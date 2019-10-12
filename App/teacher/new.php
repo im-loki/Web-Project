@@ -5,7 +5,7 @@
     </title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-        var labs=0,teachers=0,others=0,classes=0;
+        var labs=0,teachers=0,others=0,classes=0, type="";
 
         function control_graph() {
             google.charts.load('current', {'packages':['corechart']});
@@ -21,7 +21,7 @@
             ['Others', others]
             ]);
             // Optional; add a title and set the width and height of the chart
-            var options = {'title':'Types of Complaints', 'width':550, 'height':400};
+            var options = {'title':'Types of '+ type, 'width':550, 'height':400};
             // Display the chart inside the <div> element with id="piechart"
             var chart = new google.visualization.PieChart(document.getElementById("graph"));
             chart.draw(data, options);
@@ -35,6 +35,7 @@
         $dbname = "wtproject";
         $tot = $_GET['q'];
         echo "$tot";
+        echo "<script> type=\"$tot\" </script>";
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
         // Check connection
