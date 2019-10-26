@@ -23,7 +23,6 @@
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link rel="stylesheet" type="text/css" href="./color_schemes">
 <script>
-var i=0;
   function displayDate1() {
     var h=name+", "+Date();
     var hello = document.getElementById("complaint").value;
@@ -77,27 +76,69 @@ var i=0;
   function displayDate4() {
     window.open("queryengine04.php?q=" + name);
   }
-  function color_set() {
-    if(i==0){
-      document.getElementById("color_m").innerHTML = "Light Mode";
-      document.body.style.backgroundColor = "black";
-      i = 1;
+  var i=0;
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var j = 0; j < ca.length; j++) {
+    var c = ca[j];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
     }
-    else{
-      document.getElementById("color_m").innerHTML = "Dark Mode";
-      document.body.style.backgroundColor = "white";
-      i = 0;
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
     }
   }
+  return "";
+}
+var date = new Date();
+
+function color_check() {
+  var c = getCookie("color");
+  if(c==""){
+    document.cookie = "color=1;path=/" ;
+    i = 1;
+  }
+  else {
+    // alert(c);
+    i=c;
+  }
+  color_set();
+}
+
+function toggle(){
+  if (i==1){
+    i = 0;
+    document.cookie = "color=0;path=/";
+  }
+  else {
+    i = 1;
+    document.cookie = "color=1;path=/";
+  }
+  color_set();
+}
+
+function color_set() {
+  if(i==0){ //dark mode
+    document.getElementById("color_m").innerHTML = "Light Mode";
+    document.body.style.backgroundColor = "black";
+    
+  }
+  else{ //white mode
+    document.getElementById("color_m").innerHTML = "Dark Mode";
+    document.body.style.backgroundColor = "white";
+  }
+}
 </script>
 </head>
-  <body>
+<body onload="script:color_check();">
      <nav class="navbar navbar-fixed-top navbar-dark ">
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li style="background-color:red;"><a href="http://localhost/Build/App/teacher">Teacher</a></li>
               <li style="float: right;background-color: aquamarine; border: none; padding: 2px;">
-                <button id="color_mode" onclick="color_set()" style="background-color: inherit; border: none;"> 
+                <button id="color_mode" onclick="toggle()" style="background-color: inherit; border: none;"> 
                 <img src="https://content.invisioncic.com/r229491/monthly_2018_10/icon.png.6ea8a7a7fbcf4c57df7b28ba4e996bb2.png"
                 height="20" width="20"> <p id="color_m" style="margin-bottom: 0;">Dark Mode</p></button>
               </li>

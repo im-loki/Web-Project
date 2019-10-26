@@ -22,7 +22,7 @@
 <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link rel="stylesheet" type="text/css" href="./color_schemes">
- <script>
+<script>
   function displayDate1() {
     var h=name+", "+Date();
     document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
@@ -114,14 +114,73 @@
 
     window.open("queryengine04.php?q=" + name);
   }
+  
+var i=0;
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var j = 0; j < ca.length; j++) {
+    var c = ca[j];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function color_check() {
+  var c = getCookie("color");
+  if(c==""){
+    // document.cookie = "color" + "=" + "1" + ";" + "path=/";
+    document.cookie="color=1;path=/";
+    i = 1;
+  }
+  else {
+    // alert(c);
+    i=c;
+  }
+  color_set();
+}
+
+function toggle(){
+  if (i==1){
+    i = 0;
+    document.cookie = "color=0;path=/";
+  }
+  else {
+    i = 1;
+    document.cookie = "color=1;path=/";
+  }
+  color_set();
+}
+
+function color_set() {
+  if(i==0){ //dark mode
+    document.getElementById("color_m").innerHTML = "Light Mode";
+    document.body.style.backgroundColor = "black";
+  }
+  else{ //white mode
+    document.getElementById("color_m").innerHTML = "Dark Mode";
+    document.body.style.backgroundColor = "white";
+  }
+}
 </script>
 </head>
-  <body>
+  <body onload="script:color_check();">
      <nav class="navbar navbar-fixed-top navbar-dark ">
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li style="background-color:red;"><a href="http://localhost/Build/App/student">Student</a></li>
               <li><a href="http://localhost/Build/App/events">Admin</a></li>
+              <li style="float: right;background-color: aquamarine; border: none; padding: 2px;">
+                <button id="color_mode" onclick="toggle()" style="background-color: inherit; border: none;"> 
+                <img src="https://content.invisioncic.com/r229491/monthly_2018_10/icon.png.6ea8a7a7fbcf4c57df7b28ba4e996bb2.png"
+                height="20" width="20"> <p id="color_m" style="margin-bottom: 0;">Dark Mode</p></button>
+              </li>
             </ul>
       </nav>
     <div class="container">

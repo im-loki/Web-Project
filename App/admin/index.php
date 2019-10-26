@@ -43,6 +43,19 @@ xmlhttp.open("GET", "queryengine04.php?q=" + name, true);
 xmlhttp.send();
 }
 }
+var i=0;
+function color_set() {
+    if(i==0){
+      document.getElementById("color_m").innerHTML = "Light Mode";
+      document.body.style.backgroundColor = "black";
+      i = 1;
+    }
+    else{
+      document.getElementById("color_m").innerHTML = "Dark Mode";
+      document.body.style.backgroundColor = "white";
+      i = 0;
+    }
+  }
 </script>
 <?php 
 $servername = "localhost";
@@ -79,9 +92,12 @@ $conn->close();
      <nav class="navbar navbar-fixed-top navbar-dark ">
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
-              <li><a href="http://localhost/Build/App/student">Student</a></li>
-              <li><a href="http://localhost/Build/App/events">Events</a></li>
-              <li><a href="http://localhost/Build/App/survey">Survey</a></li>
+              <li style="background-color:red;"><a href="http://localhost/Build/App/admin">admin</a></li>
+              <li style="float: right;background-color: aquamarine; border: none; padding: 2px;">
+                <button id="color_mode" onclick="color_set()" style="background-color: inherit; border: none;"> 
+                <img src="https://content.invisioncic.com/r229491/monthly_2018_10/icon.png.6ea8a7a7fbcf4c57df7b28ba4e996bb2.png"
+                height="20" width="20"> <p id="color_m" style="margin-bottom: 0;">Dark Mode</p></button>
+              </li>
             </ul>
       </nav>
     <div class="container">
