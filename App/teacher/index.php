@@ -22,6 +22,7 @@
 <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./stylesheets/main.css">
 <link rel="stylesheet" type="text/css" href="./color_schemes">
+<link rel='icon' href='./stylesheets/Bangalore_Institute_of_Technology_logo' type='image/x-icon'/ >
 <script>
   function displayDate1() {
     var h=name+", "+Date();
