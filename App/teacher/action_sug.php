@@ -65,7 +65,7 @@ function color_set() {
 
 <div class="container">
 <!-- <div class="row"> <br><br> </div> -->
-<div class="row headerbig">Complaint Reply Panel<hr></div>
+<div class="row headerbig">Suggestion Reply Panel<hr></div>
 <div class="row">
 <div class="col-md-12 header">
 <?php
