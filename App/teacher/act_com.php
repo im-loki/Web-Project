@@ -90,16 +90,13 @@ require 'PHPMailer/SMTP.php';
         echo "Error updating record: " . $conn->error;
     }
 
-    $sql = "Update suggestions SET reply='$reply' WHERE sug='$sug' ";
+    $sql = "Update complaints SET reply='$reply' WHERE sug='$sug' ";
     $result = $conn->query($sql);
     if ($result === TRUE) {
         echo "Record updated successfully";
-        header("Location: http://localhost/Web-Project-master/App/teacher/index.php");
+        header("Location: http://localhost/Build/App/teacher/index.php");
     } else {
         echo "Error updating record: " . $conn->error;
     }
-
-    
-    
     $conn->close();
 ?>

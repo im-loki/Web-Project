@@ -97,18 +97,13 @@ $mail = new PHPMailer;
 
 <html>
 <head>
-	<title>complaint registery</title>
+	<title>New Complaint</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
@@ -124,12 +119,6 @@ $mail = new PHPMailer;
       height: 100%;
     }
     
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
@@ -139,48 +128,111 @@ $mail = new PHPMailer;
       }
       .row.content {height:auto;} 
     }
+
+    #button {
+      background:green;
+      border: none;
+      height: 35px;
+      border-radius: 5px;
+      color: white;
+    }
+
+    #button:hover {
+      background: lightgreen;
+      color: black;
+    }
   </style>
-    <script>
-        function checkOTP() {
-            var otp = parseInt(document.getElementById("otp").value);
-            var p_id = document.getElementById("demo");
-            p_id.innerHTML = usn + " " + otp + " "+rd + typeof(otp) + typeof(rd);
+  <script>
+  function checkOTP() {
+      var otp = parseInt(document.getElementById("otp").value);
+      var p_id = document.getElementById("demo");
+      // p_id.innerHTML = usn + " " + otp + " "+rd + typeof(otp) + typeof(rd);
+      p_error = document.getElementById("error");
+      
 
-            
+      if(otp == rd){
+          alert("Your complaint has been verified.");
+          window.open('/Build/App/student','_self',false);
+          p_id.innerHTML="You have been verified your suggestion is noted we will inform you shortly of the development"
+          document.getElementById("home").innerHTML='You can further browse by going back home'
+          
+      }
+      else{
+          p_error.innerHTML = "* Invalid OTP";
+          p_error.setAttribute('style',"color:red;");
+      }
+      function myFunction() {
+        window.open("/Web-Project-master/App");
+      }
+  }
+  var i=0;
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var j = 0; j < ca.length; j++) {
+      var c = ca[j];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
-            if(otp == rd){
-                p_id.innerHTML="you have been verified your suggestion is noted we will inform you shortly of the development"
-                document.getElementById("home").innerHTML='you can further browse by going back home'
-                
-            }
-            else{
-                p_id.innerHTML = "Invalid OTP";
-                p_id.setAttribute('style',"color:red;");
-            }
-            function myFunction() {
-  				window.open("/Web-Project-master/App");
-			}
-        }
-    </script>
+  function color_check() {
+    var c = getCookie("color");
+    if(c==""){
+      // document.cookie = "color" + "=" + "1" + ";" + "path=/";
+      document.cookie="color=1;path=/";
+      i = 1;
+    }
+    else {
+      // alert(c);
+      i=c;
+    }
+    color_set();
+  }
+
+  function toggle(){
+    if (i==1){
+      i = 0;
+      document.cookie = "color=0;path=/";
+    }
+    else {
+      i = 1;
+      document.cookie = "color=1;path=/";
+    }
+    color_set();
+  }
+
+  function color_set() {
+    if(i==0){ //dark mode
+      // document.getElementById("color_m").innerHTML = "Light Mode";
+      document.body.style.backgroundColor = "black";
+      document.body.style.color="white";
+      // document.getElementById("form_fill").style.backgroundColor = "#282828d1";
+      document.getElementsByClassName("container-fluid")[0].style.backgroundColor="#282828d1";
+      document.getElementsByClassName("sidenav")[0].style.backgroundColor="#282828d1";
+      document.getElementsByClassName("sidenav")[1].style.backgroundColor="#282828d1";
+    }
+    else{ //white mode
+      // document.getElementById("color_m").innerHTML = "Dark Mode";
+      document.body.style.backgroundColor = "white";
+      document.body.style.color="black";
+      // document.getElementById("form_fill").style.backgroundColor = "#f2f2f2";
+      document.getElementsByClassName("container-fluid")[0].style.backgroundColor="#f2f2f2";
+      document.getElementsByClassName("sidenav")[0].style.backgroundColor="rgba(185, 182, 182, 0.16)";
+      document.getElementsByClassName("sidenav")[1].style.backgroundColor="rgba(185, 182, 182, 0.16)";
+
+    }
+  }
+
+  </script>
 </head>
-<body>
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/Web-Project-master/App">Home</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-  
+<body onload="script:color_check();">
 <div class="container-fluid text-center">    
   <div class="row content" id="row">
     <div class="col-lg-2 sidenav">
@@ -188,16 +240,17 @@ $mail = new PHPMailer;
     </div>
     <div class="col-lg-8 text-center"> 
     	<hr>
-      <h1>enter the OTP sent to your mail</h1>
+      <h1>Enter the OTP sent to your mail</h1>
       <form  action="javascript:myFunction(); return false;">
         <label for="otp"> OTP verification code:</label>
         <input type="text" id="otp"> 
-        <input type="button" onclick="checkOTP()" value = "submit">
+        <input type="button" onclick="checkOTP()" value = "submit" id="button">
+        <p id="error"></p>
     </form>
     
       <hr>
       <h3></h3>
-     <p id="demo">  </p>
+     <p id="demo"></p>
      <p id="home"></p>
     </div>
     <div class="col-lg-2 sidenav">
@@ -205,10 +258,6 @@ $mail = new PHPMailer;
     </div>
   </div>
 </div>
-
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
 </body> 
 </html>
  

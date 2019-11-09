@@ -94,6 +94,7 @@ require 'PHPMailer/SMTP.php';
     $result = $conn->query($sql);
     if ($result === TRUE) {
         echo "Record updated successfully";
+        header("Location: http://localhost/Build/App/teacher/index.php");
     } else {
         echo "Error updating record: " . $conn->error;
     }

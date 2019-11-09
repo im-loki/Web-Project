@@ -36,17 +36,79 @@ input[type=submit]:hover {
   padding: 20px;
 }
 </style>
+<script>
+var i=0;
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var j = 0; j < ca.length; j++) {
+    var c = ca[j];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function color_check() {
+  var c = getCookie("color");
+  if(c==""){
+    // document.cookie = "color" + "=" + "1" + ";" + "path=/";
+    document.cookie="color=1;path=/";
+    i = 1;
+  }
+  else {
+    // alert(c);
+    i=c;
+  }
+  color_set();
+}
+
+function toggle(){
+  if (i==1){
+    i = 0;
+    document.cookie = "color=0;path=/";
+  }
+  else {
+    i = 1;
+    document.cookie = "color=1;path=/";
+  }
+  color_set();
+}
+
+function color_set() {
+  if(i==0){ //dark mode
+    // document.getElementById("color_m").innerHTML = "Light Mode";
+    document.body.style.backgroundColor = "black";
+    document.body.style.color="white";
+    // document.getElementById("form_fill").style.backgroundColor = "#282828d1";
+    document.getElementsByClassName("container")[0].style.backgroundColor="#282828d1";
+  }
+  else{ //white mode
+    // document.getElementById("color_m").innerHTML = "Dark Mode";
+    document.body.style.backgroundColor = "white";
+    document.body.style.color="black";
+    // document.getElementById("form_fill").style.backgroundColor = "#f2f2f2";
+    document.getElementsByClassName("container")[0].style.backgroundColor="#f2f2f2";
+
+  }
+}
+</script>
 </head>
-<body>
+<body onload="script:color_check();">
 <?php
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "student01";
     $q=$_GET['q'];
-    echo "$q".", your enrolled events are:"."<br>"."<hr>";
+    echo "$q".", Fill details:"."<br>"."<hr>";
 ?> 
-<h3>Contact Form</h3>
+<h3>Suggestion Form</h3>
 
 <div class="container">
   <form method="POST" action="action_page_suggestion.php" >
@@ -64,7 +126,7 @@ input[type=submit]:hover {
       <option value="others">Others</option>
     </select>
 
-    <label for="desc">description</label>
+    <label for="desc">Description</label>
     <textarea id="desc" name="desc" placeholder="Write something.." style="height:200px"></textarea>
 
     <input type="submit" value="Submit">

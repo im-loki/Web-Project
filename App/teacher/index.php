@@ -24,6 +24,11 @@
 <link rel="stylesheet" type="text/css" href="./color_schemes">
 <link rel='icon' href='./stylesheets/Bangalore_Institute_of_Technology_logo' type='image/x-icon'/ >
 <script>
+var blol = '<button onclick="cl()" style="float: right">Close Drop</button>';
+  function cl() {
+    document.getElementById("demo1").innerHTML = " ";
+    // alert("HIII");
+  }
   function displayDate1() {
     var h=name+", "+Date();
     var hello = document.getElementById("complaint").value;
@@ -38,7 +43,7 @@
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo1").innerHTML = this.responseText;
+        document.getElementById("demo1").innerHTML =  blol + this.responseText;
         }
       };
     xmlhttp.open("GET", "queryengine01.php?q=" + hello + "&r=" + temp2, true);
@@ -52,17 +57,17 @@
     var h=name+", "+Date();
     var hello = document.getElementById("suggest").value;
     var temp2 = document.getElementById("suggest_ver").value;
-    document.getElementById("demo2").innerHTML = h;//redundancy used for understanding 
+    document.getElementById("demo1").innerHTML = h;//redundancy used for understanding 
     //use this variable name to query the database.
     //see codes of (php-ajax) ajax php and database.
     if (name.length == 0) {
-      document.getElementById("demo2").innerHTML = "";
+      document.getElementById("demo1").innerHTML = "";
       return;
       } else {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo2").innerHTML = this.responseText;
+        document.getElementById("demo1").innerHTML =  blol + this.responseText;
         }
       };
     xmlhttp.open("GET", "queryengine02.php?q=" + hello + "&r=" + temp2, true);
@@ -123,12 +128,23 @@ function toggle(){
 function color_set() {
   if(i==0){ //dark mode
     document.getElementById("color_m").innerHTML = "Light Mode";
+    for(var j=0;j<4;j++){
+      document.getElementsByTagName("select")[parseInt(j)].setAttribute("style","background: white; color:black; border: 1px solid white;");
+    }
+    document.getElementById("demo1").backgroundColor="#404040";
+    document.getElementById("demo1").color="black";
     document.body.style.backgroundColor = "black";
-    
+    document.body.style.color="#d9d5d6";
   }
   else{ //white mode
     document.getElementById("color_m").innerHTML = "Dark Mode";
+    for(var j=0;j<4;j++){
+      document.getElementsByTagName("select")[parseInt(j)].setAttribute("style","background: #404040; color:white; border: 1px solid black;");
+    }
+    document.getElementById("demo1").backgroundColor="white";
+    document.getElementById("demo1").color="black";
     document.body.style.backgroundColor = "white";
+    document.body.style.color="black";
   }
 }
 </script>
@@ -186,30 +202,30 @@ function color_set() {
         <div class="row text-center">
           <h2 class="text-muted">Services</h2>
         </div>
-        <div class="row text-center">
+        <div class="row text-center" style="padding-left: 10px;">
           <div class="col-md-6">
-            <img src="./stylesheets/attend.png" class="img-responsive">
+            <img src="./stylesheets/support.jpg" class="img-responsive im">
             <h3>Complaints</h3>
             <p>
               <form action="javascript:void(0);">
-                <select id="complaint" style="border: none; background: aqua; font-style: oblique; font-weight: bolder; border-radius: 5px;">
+                <select id="complaint" >
                   <option value="classes">Class</option>
                   <option value="labs">Labs</option>
                   <option value="teachers">Teachers</option>
                   <option value="others">Others</option>
                 </select>
-                <select id="complaint_ver" style="border: none; background: aqua; font-style: oblique; font-weight: bolder; border-radius: 5px;">
+                <select id="complaint_ver" >
                   <option value="0">UnSeen</option>
                   <option value="1">Read</option>
                   <option value="2">Resolved</option>
                 </select>
-                <button onclick="displayDate1()" style="width: 100px; background-color: aqua; border: 1px dashed azure; font-weight: bold;">Click me?</button>
-                <p id="demo1"></p>
+                <button onclick="displayDate1()" >Search</button>
+                <!-- <p id="demo1"></p> -->
               </form>
             </p>
           </div>
           <div class="col-md-6">
-            <img src="./stylesheets/marks1.jpg" class="img-responsive">
+            <img src="./stylesheets/idea.jpg" class="img-responsive im">
             <h3>Suggestions</h3>
             <p>
             <form action="javascript:void(0);">
@@ -224,23 +240,28 @@ function color_set() {
                 <option value="1">Read</option>
                 <option value="2">Resolved</option>
               </select> 
-              <button onclick="displayDate2()">Click me?</button>
-              <p id="demo2"></p>
+              <button onclick="displayDate2()">Search</button>
+              <!-- <p id="demo2"></p> -->
             </form>
             </p>
           </div>
         </div>
         <div class="row text-center">
+        <p id="demo1"> </p>
+        </div>
+        <br>
+        <hr>
+        <div class="row text-center" style="padding-left:10px;">
           <div class="col-md-6">
-            <iframe src="new.php?q=complaints" style="border:none; width:600px; height:500px;"></iframe>
+            <iframe src="new.php?q=complaints" style="border:none; width:450px; height:500px;"></iframe>
           </div>
           <div class="col-md-6">
-            <iframe src="new.php?q=suggestions" style="border:none; width:600px; height:500px;" ></iframe>
+            <iframe src="new.php?q=suggestions" style="border:none; width:450px; height:500px;" ></iframe>
           </div>
         </div>
-        <div class="row text-center">
+        <!-- <div class="row text-center" style="padding-left:10px;">
           <div class="col-md-6">
-            <img src="./stylesheets/mentor.jpg" class="img-responsive">
+            <img src="./stylesheets/complaint.jpg" class="img-responsive im">
             <h3>New Complaint</h3>
             <p>
               <button onclick="displayDate3()">Click me?</button>
@@ -248,14 +269,14 @@ function color_set() {
             </p>
           </div>
           <div class="col-md-6">
-            <img src="./stylesheets/events.jpg" class="img-responsive">
+            <img src="./stylesheets/suggestion.jpg" class="img-responsive im">
             <h3>New Suggestions</h3>
             <p>
               <button onclick="displayDate4()">Click me?</button>
               <p id="demo4"></p>
             </p>
           </div>
-        </div>
+        </div> -->
         <br>
         <hr style="background-color:gray;">
         <div class="row text-center">

@@ -3,10 +3,11 @@
 <html>
 <head>
   <title>Registration system PHP and MySQL</title>
+  
+  <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script>
-  var i=0;
-  var i=0;
+<script>
+var i=0;
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -48,34 +49,35 @@ function toggle(){
   color_set();
 }
 
-  function color_set() {
-    if(i==0){
-      document.getElementById("color_m").innerHTML = "Light Mode";
-	  document.getElementsByClassName("header")[0].style.color="white";
-	  document.getElementsByClassName("header")[0].style.backgroundColor="black";
-	  document.getElementsByClassName("fill")[0].style.color="white";
-	  document.getElementsByClassName("fill")[0].style.backgroundColor="#263238";
-	  document.getElementsByClassName("ref")[0].style.color="pink";
-	  document.getElementsByClassName("ref")[1].style.color="pink";
-      document.body.style.backgroundColor = "#000a12";
-      
-    }
-    else{
-      document.getElementById("color_m").innerHTML = "Dark Mode";
-	  document.getElementsByClassName("header")[0].style.color="black";
-	  document.getElementsByClassName("header")[0].style.backgroundColor="#FAFAFA";
-	  document.getElementsByClassName("fill")[0].style.color="black";
-	  document.getElementsByClassName("fill")[0].style.backgroundColor="#ECEFF1";
-	  document.getElementsByClassName("ref")[0].style.color="red";
-	  document.getElementsByClassName("ref")[1].style.color="red";
-      document.body.style.backgroundColor = "#FAFAFA";
-    }
+function color_set() {
+  if(i==0){
+    document.getElementById("color_m").innerHTML = "Light Mode";
+  document.getElementsByClassName("header")[0].style.color="white";
+  document.getElementsByClassName("header")[0].style.backgroundColor="black";
+  document.getElementsByClassName("fill")[0].style.color="white";
+  document.getElementsByClassName("fill")[0].style.backgroundColor="#263238";
+  document.getElementsByClassName("ref")[0].style.color="pink";
+  document.getElementsByClassName("ref")[1].style.color="pink";
+    document.body.style.backgroundColor = "#000a12";
+    
   }
-  </script>
+  else{
+    document.getElementById("color_m").innerHTML = "Dark Mode";
+  document.getElementsByClassName("header")[0].style.color="black";
+  document.getElementsByClassName("header")[0].style.backgroundColor="#FAFAFA";
+  document.getElementsByClassName("fill")[0].style.color="black";
+  document.getElementsByClassName("fill")[0].style.backgroundColor="#ECEFF1";
+  document.getElementsByClassName("ref")[0].style.color="red";
+  document.getElementsByClassName("ref")[1].style.color="red";
+    document.body.style.backgroundColor = "#FAFAFA";
+  }
+}
+</script>
 </head>
 <body onload="script:color_check();">
-	<div class="con">
-		<div class="fill">
+	<div class="container">
+  <div class="row">
+		<div class="col-md-6 fill">
 			<div class="header">
 				<h2>Login</h2>
 				<h4>Teacher</h4>
@@ -104,9 +106,10 @@ function toggle(){
 				</p>
 			</form>
 		</div>
-		<div class="fill-image">
-			<img src="pic1.jpg" width="100%" height="650px">
+		<div class="col-md-6 fill-image">
+			<img src="pic1.jpg" width="100%" height="550px">
 		</div>
+    </div>
 	</div>
 </body>
 </html>

@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-}
-table, td, th {
-    border: 1px solid black;
-    padding: 5px;
-}
-th {text-align: left;}
-</style>
 </head>
 <body>
 <?php
@@ -26,7 +14,8 @@ $r=$_GET['r'];
 $i = 1;
 $inVal = array("Not Seen", "Acknowledged", "Resolved");
 
-echo "$q".", your attendance details are:"."<br>"."<hr>";
+echo "$usn".", your Complaint details are:"."<br>"."<hr>";
+// echo "$q"." $usn" ." $r <br>";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -43,7 +32,7 @@ if ($result->num_rows > 0) {
     <tr style=\"background-color: black; color: white;\">
     <th>Si_no</th>
     <th>Subject</th>
-    <th>Descp</th>
+    <th>Description</th>
     <th>Status</th>
     </tr>";
     while($row = $result->fetch_assoc() and $i<=10) {

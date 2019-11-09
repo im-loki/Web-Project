@@ -26,7 +26,7 @@ $r=$_GET['r'];
 $i = 1;
 $inVal = array("Not Seen", "Acknowledged", "Resolved");
 
-echo "$q".", your attendance details are:"."<br>"."<hr>";
+echo "$usn".", your Suggestion details are:"."<br>"."<hr>";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
