@@ -52,8 +52,15 @@ $mail = new PHPMailer;
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "INSERT INTO suggestions (usn, sub, descp, tos, sug, ver)
+    if(preg_match("/.*((shit)|(darn)|(bitch)).*/",$db_desc)){
+      $sql = "INSERT INTO suggestions (usn, sub, descp, tos, sug, ver)
+    VALUES ('$db_usn', '$db_sub', '$db_desc','$db_tos','$db_rd','5')";
+    }
+    else {
+      $sql = "INSERT INTO suggestions (usn, sub, descp, tos, sug, ver)
     VALUES ('$db_usn', '$db_sub', '$db_desc','$db_tos','$db_rd','0')";
+    }
+    
 
     if ($conn->query($sql) === TRUE && $email_flag==1 ) {
         
@@ -97,7 +104,8 @@ $mail = new PHPMailer;
 
 <html>
 <head>
-	<title>New Complaint</title>
+  <title>New Complaint Student</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

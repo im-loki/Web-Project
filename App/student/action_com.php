@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Complaint Student</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
 <style>
 table {
     width: 100%;

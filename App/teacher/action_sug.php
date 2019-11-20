@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Teacher-Suggestion Page</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
 <link rel="stylesheet" href="./stylesheets/action.css">
 <script>

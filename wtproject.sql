@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2019 at 02:03 PM
+-- Generation Time: Nov 20, 2019 at 03:23 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `complaints` (
-  `usn` varchar(10) DEFAULT NULL,
+  `usn` varchar(10) NOT NULL,
   `sub` varchar(50) DEFAULT NULL,
   `descp` varchar(500) DEFAULT NULL,
   `tos` varchar(15) DEFAULT NULL,
-  `sug` varchar(10) DEFAULT NULL,
+  `sug` varchar(10) NOT NULL,
   `ver` varchar(1) DEFAULT NULL,
   `reply` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -43,7 +43,17 @@ CREATE TABLE `complaints` (
 --
 
 INSERT INTO `complaints` (`usn`, `sub`, `descp`, `tos`, `sug`, `ver`, `reply`) VALUES
-('1BI16CS187', 'hello com', 'hello\r\n', 'class', '894346313', '0', NULL);
+('1BI16CS187', 'Benches', 'Benches are not polished', 'classes', '1060558408', '1', ''),
+('1BI16CS187', 'Lights', 'New tubelights needed.', 'classes', '1190665922', '0', NULL),
+('1BI16CS187', 'New White Board', 'The Board is broken in 500', 'classes', '138538515', '1', 'hello'),
+('1BI16CS187', 'Foul complaint check - 01', 'hello darn.', 'classes', '1831219934', '5', NULL),
+('1BI16CS187', 'New teacher', 'new teacher for pe', 'teachers', '1875072984', '0', NULL),
+('1BI16CS187', 'Foul complaint check - 02', 'hello darn.', 'classes', '1952050335', '5', NULL),
+('1BI16CS187', 'Window', 'Window broken in the classroom', 'classes', '2017834477', '0', NULL),
+('1BI16CS187', 'Wifi needed', 'wifi needed in campus.', 'others', '245325497', '0', NULL),
+('1BI16CS187', 'New Board', 'The Board is broken in 500', 'classes', '354094100', '1', 'hello'),
+('1BI16CS187', 'New UI', 'New UI teacher required.', 'teachers', '466700423', '0', NULL),
+('1BI16CS187', 'Internet', 'Internet connection required.', 'labs', '679562162', '0', NULL);
 
 -- --------------------------------------------------------
 
@@ -52,11 +62,11 @@ INSERT INTO `complaints` (`usn`, `sub`, `descp`, `tos`, `sug`, `ver`, `reply`) V
 --
 
 CREATE TABLE `suggestions` (
-  `usn` varchar(10) DEFAULT NULL,
+  `usn` varchar(10) NOT NULL,
   `sub` varchar(50) DEFAULT NULL,
   `descp` varchar(500) DEFAULT NULL,
   `tos` varchar(15) DEFAULT NULL,
-  `sug` varchar(10) DEFAULT NULL,
+  `sug` varchar(10) NOT NULL,
   `ver` varchar(1) DEFAULT NULL,
   `reply` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -66,37 +76,28 @@ CREATE TABLE `suggestions` (
 --
 
 INSERT INTO `suggestions` (`usn`, `sub`, `descp`, `tos`, `sug`, `ver`, `reply`) VALUES
-('0', '0', '0', '0', '0', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '101', '0', ''),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '1063988849', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '2064838076', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '955943945', '0', 'done'),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '452729640', '0', NULL),
-('', '', '', '', '1584281286', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '1376506880', '0', NULL),
-('', '', '', '', '1461447028', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '15999462', '0', NULL),
-('', '', '', '', '872930786', '0', NULL),
-('', '', '', '', '1549231496', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '56', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '56', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '56', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '56', '0', NULL),
-('', '', '', '', '56', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '56', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '56', '0', NULL),
-('1BI16CS187', 'hello', 'Testing\r\n', 'class', '56', '0', NULL),
-('1BI16CS187', 'test final', 'testing', 'class', '56', '0', NULL),
-('1BI16CS187', 'test final', 'testing', 'class', '11490061', '0', NULL),
-('1BI16CS187', 'test 4', 'jgbebfact\r\n\r\n', 'class', '2137879830', '0', NULL),
-('1BI16CS187', 'test new email', 'hello', 'class', '846838439', '0', NULL),
-('1BI16CS187', 'test new email', 'hello', 'class', '646632287', '0', NULL),
-('', '', '', '', '1304808905', '0', NULL),
-('1BI16CS187', 'test new email', 'hello', 'class', '352343147', '0', NULL),
-('1BI16CS187', 'hello', '', 'class', '1119453434', '0', NULL),
-('1BI16CS187', 'Hello', 'new', 'class', '854909395', '0', NULL),
-('1BI16CS187', 'hello sug', 'sug', 'class', '1052659281', '0', NULL),
-('1BI16CS187', 'hell', '', 'class', '183418048', '0', NULL);
+('1BI16CS187', 'Foul suggestion check - 01', 'hello darn.', 'classes', '1171186933', '5', NULL),
+('1BI16CS187', 'Update OS', 'Update the OS of lab computers', 'labs', '1328604326', '0', NULL),
+('1BI16CS187', 'Sports teachers', 'Request for PE and sports faculty', 'teachers', '1408398896', '0', NULL),
+('1BI16CS187', 'Corridor', 'Please put wet sign on the corridor when wet.', 'others', '1542624643', '0', NULL),
+('1BI16CS187', 'Foul suggestion check - 02', 'Hello darn.', 'classes', '2113327486', '5', NULL),
+('1BI16CS187', 'Wet Classroom', 'Please put up slippery sign when classroom floor is wet', 'classes', '647966308', '0', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `complaints`
+--
+ALTER TABLE `complaints`
+  ADD PRIMARY KEY (`usn`,`sug`);
+
+--
+-- Indexes for table `suggestions`
+--
+ALTER TABLE `suggestions`
+  ADD PRIMARY KEY (`usn`,`sug`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

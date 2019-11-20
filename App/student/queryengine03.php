@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <title>Complaint Student</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -118,7 +120,7 @@ function color_set() {
 
     <input type="hidden" id="usnid" name="usnid" value=<?php print($q) ?>> 
 
-    <label for="tos">Type of Suggestions</label>
+    <label for="tos">Type of Complaint</label>
     <select id="tos" name="tos">
       <option value="classes">Class</option>
       <option value="labs">Labs</option>

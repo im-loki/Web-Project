@@ -105,6 +105,8 @@ $mail = new PHPMailer;
 
 <html>
 <head>
+<title>Teacher</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
     <script>
         function checkOTP() {
             var otp = parseInt(document.getElementById("otp").value);

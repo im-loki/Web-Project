@@ -12,6 +12,8 @@
 ?>
 <!DOCTYPE html>
 <html lang=en><head>
+<title>Teacher Page</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
@@ -281,24 +283,14 @@ function color_set() {
         <hr style="background-color:gray;">
         <div class="row text-center">
           <div class="col-md-12">
-          <p>This is beta site under development. Policies and features are prone to abruptly change during this stage.
-          User discretion is advised.The developers of this website do not hold any liablities. Images used in this website are not owned by us.
+          <p>Images used in this website are not owned by us.<br> Remember to keep the complaints/suggestions respectful
           </p>
           <hr style="background-color:gray;">
-          <a style="text-align: center;">Copyright 2018</a>
+          <a style="text-align: center;">Copyright 2019</a>
           </div>
           <div class="col-md-12">
-            <a class="btn btn-social-icon btn-github" href="https://www.github.com">
+            <a class="btn btn-social-icon btn-github" href="https://github.com/im-loki/Web-Project">
                   <span class="fa fa-github"></span>
-            </a>
-            <a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com">
-                  <span class="fa fa-twitter"></span>
-            </a>
-            <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com">
-                  <span class="fa fa-facebook"></span>
-            </a>
-            <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com">
-                  <span class="fa fa-linkedin"></span>
             </a>
             <br>
             <br>

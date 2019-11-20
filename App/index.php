@@ -1,6 +1,8 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang=en><head>
+<title>Home Page</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
@@ -90,10 +92,10 @@ function color_set() {
       <hr>
       <br><br><br><br>
         <div class="row" style="display: flex;">
-          <div class="col-md-5 title-logo"><img src="./stylesheets/logo.jpg" class="img-responsive"></div>
-          <div class="col-md-7 text-right">
-            <h3 class="title-super text-uppercase text-thin">Home page</h3>
-            <h4 class="text-uppercase">Info.Info. All the info you need.</h4>
+          <div class="col-md-3 title-logo"><img src="./stylesheets/logo.jpg" class="img-responsive"></div>
+          <div class="col-md-9 text-right">
+            <h3 class="title-super text-thin">Online BIT Complaint & Suggestion Portal</h3>
+            <h4 class="text-thin">Feel free. We do not reveal your usn in any manner.</h4>
           </div>
         </div>
         <div>
@@ -110,38 +112,28 @@ function color_set() {
         <div class="row text-center" style="
         display: inline-flex; ">
           <div class="col-md-6">
-            <img src="./stylesheets/field.png" class="img-responsive" data-toggle="modal" data-target="#project1">
-            <h3>Feild Trip</h3>
-            <p><a href="http://localhost/Build/App/events">Link to Register</a></p>
+            <img src="./stylesheets/complaint.jpg" class="img-responsive" data-toggle="modal" data-target="#project1">
+            <h3>Complaints</h3>
+            <p><a href="http://localhost/Build/App/student">Link to Register</a></p>
           </div>
           <div class="col-md-6">
-            <img src="./stylesheets/workshop.jpg" class="img-responsive">
-            <h3>Robotics workshop</h3>
-            <p><a href= "http://localhost/Build/App/events">Link to Register</a></p>
+            <img src="./stylesheets/suggestion.jpg" class="img-responsive">
+            <h3>Suggestions</h3>
+            <p><a href= "http://localhost/Build/App/student">Link to Register</a></p>
           </div>
         </div>
         <br>
         <hr>
         <div class="row text-center">
           <div class="col-md-12">
-          <p>This is beta site under development. Policies and features are prone to abruptly change during this stage.
-          User discretion is advised.The developers of this website do not hold any liablities. Images used in this website are not owned by us.
+          <p>Images used in this website are not owned by us.<br> Remember to keep the complaints/suggestions respectful
           </p>
           <hr>
-          <a style="text-align: center;">Copyright 2018</a>
+          <a style="text-align: center;">Copyright 2019</a>
           </div>
           <div class="col-md-12">
-            <a class="btn btn-social-icon btn-github" href="https://www.github.com">
+            <a class="btn btn-social-icon btn-github" href="https://github.com/im-loki/Web-Project">
                   <span class="fa fa-github"></span>
-            </a>
-            <a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com">
-                  <span class="fa fa-twitter"></span>
-            </a>
-            <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com">
-                  <span class="fa fa-facebook"></span>
-            </a>
-            <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com">
-                  <span class="fa fa-linkedin"></span>
             </a>
             <br>
             <br>

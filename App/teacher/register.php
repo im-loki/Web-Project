@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registration system PHP and MySQL</title>
+  <title>Register Teacher</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="style_r.css">
 <script>
 	var i=0;

@@ -12,6 +12,8 @@
 ?>
 <!DOCTYPE html>
 <html lang=en><head>
+<title>Student Page</title>
+<link rel="icon" href="stylesheets/bitlogo.png" type="image/x-icon">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
@@ -192,7 +194,7 @@ function color_set() {
             <ul>
               <li><a href="http://localhost/Build">Home</a></li>
               <li style="background-color:red;"><a href="http://localhost/Build/App/student">Student</a></li>
-              <li><a href="http://localhost/Build/App/events">Admin</a></li>
+              <!-- <li><a href="http://localhost/Build/App/events">Admin</a></li> -->
               <li style="float: right;background-color: aquamarine; border: none; padding: 2px;">
                 <button id="color_mode" onclick="toggle()" style="background-color: inherit; border: none;"> 
                 <img src="https://content.invisioncic.com/r229491/monthly_2018_10/icon.png.6ea8a7a7fbcf4c57df7b28ba4e996bb2.png"
@@ -258,7 +260,7 @@ function color_set() {
                   <option value="1">Read</option>
                   <option value="2">Resolved</option>
                 </select>
-                <button onclick="displayDate1()">Click me?</button>
+                <button onclick="displayDate1()">Search</button>
                 <!-- <p id="demo1"></p> -->
               </form>
             </p>
@@ -279,7 +281,7 @@ function color_set() {
                 <option value="1">Read</option>
                 <option value="2">Resolved</option>
               </select> 
-              <button onclick="displayDate2()">Click me?</button>
+              <button onclick="displayDate2()">Search</button>
               <!-- <p id="demo2"></p> -->
             </form>
             </p>
@@ -295,7 +297,7 @@ function color_set() {
             <img src="./stylesheets/complaint.jpg" class="img-responsive im">
             <h3>New Complaint</h3>
             <p>
-              <button onclick="displayDate3()">Click me?</button>
+              <button onclick="displayDate3()">Next!!</button>
               <p id="demo3"></p>
             </p>
           </div>
@@ -303,7 +305,7 @@ function color_set() {
             <img src="./stylesheets/suggestion.jpg" class="img-responsive im">
             <h3>New Suggestions</h3>
             <p>
-              <button onclick="displayDate4()">Click me?</button>
+              <button onclick="displayDate4()">Next!!</button>
               <p id="demo4"></p>
             </p>
           </div>
@@ -313,24 +315,14 @@ function color_set() {
         
         <div class="row text-center">
           <div class="col-md-12">
-          <p>This is beta site under development. Policies and features are prone to abruptly change during this stage.
-          User discretion is advised.The developers of this website do not hold any liablities. Images used in this website are not owned by us.
+          <p>Images used in this website are not owned by us.<br> Remember to keep the complaints/suggestions respectful
           </p>
           <hr>
-          <a style="text-align: center;">Copyright 2018</a>
+          <a style="text-align: center;">Copyright 2019</a>
           </div>
           <div class="col-md-12">
-            <a class="btn btn-social-icon btn-github" href="https://www.github.com">
+            <a class="btn btn-social-icon btn-github" href="https://github.com/im-loki/Web-Project">
                   <span class="fa fa-github"></span>
-            </a>
-            <a class="btn btn-social-icon btn-twitter" href="https://www.twitter.com">
-                  <span class="fa fa-twitter"></span>
-            </a>
-            <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com">
-                  <span class="fa fa-facebook"></span>
-            </a>
-            <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com">
-                  <span class="fa fa-linkedin"></span>
             </a>
             <br>
             <br>
