@@ -98,10 +98,12 @@ function color_set() {
   if(i==0){ //dark mode
     document.body.style.backgroundColor = "black";
     document.body.style.color="#d9d5d6";
+    document.getElementById('demo3').style.color="black";
   }
   else{ //white mode
     document.body.style.backgroundColor = "white";
     document.body.style.color="black";
+    document.getElementById('demo3').style.color="black";
   }
 }
 </script>

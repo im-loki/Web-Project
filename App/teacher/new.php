@@ -59,6 +59,6 @@
     ?>
 </head>
 <body>
-        <div id="graph"></div>
+    <div id="graph"></div>
 </body>
 </html>
